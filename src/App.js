@@ -12,9 +12,13 @@ function App() {
   // TODO: use useState to create a state variable to hold the state of the cart
   /* add your cart state code here */
 
+  const [data, setData] = useState(bakeryData);
+  const [cart, setCart] = useState([]); 
+
+
   return (
     <div className="App">
-      <h1>My Bakery</h1> {/* TODO: personalize your bakery (if you want) */}
+      <h1>Rahul's Bakery</h1> {/* TODO: personalize your bakery (if you want) */}
 
       {bakeryData.map((item, index) => ( // TODO: map bakeryData to BakeryItem components
         <p>Bakery Item {index}</p> // replace with BakeryItem component
