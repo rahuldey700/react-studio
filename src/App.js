@@ -40,7 +40,6 @@ function App() {
 
   const bakeryItemsJSX = data.map((item, index) => (
     <div key={index}>
-      {/* <p>{`Bakery Item ${index}, ${bakeryItem.description}, ${bakeryItem.price}`}</p> */}
       <BakeryItem item={item} />
       <button onClick={() => addToCart(item)}>Add to Cart</button>
     </div>
@@ -51,19 +50,18 @@ const cartJSX = cart.length === 0 ? <p>Cart is empty</p>
 
 return (
   <div className="App">
-    {/* {data.map((bakeryItem, index) => (
+    {/* {data.map((BakeryItem, index) => (
       <div key={index}>
-        <h2>{bakeryItem.name}</h2>
-        <p>{bakeryItem.description}</p>
-        <p>{bakeryItem.price}</p>
-        <img src={bakeryItem.image} alt={bakeryItem.name} />
-        <button onClick={() => addToCart(bakeryItem)}>Add to Cart</button>
+        <h2>{BakeryItem.name}</h2>
+        <p>{BakeryItem.description}</p>
+        <p>{BakeryItem.price}</p>
+        <img src={BakeryItem.image} alt={BakeryItem.name} />
+        <button onClick={() => addToCart(BakeryItem)}>Add to Cart</button>
       </div>
     ))} */}
-    <h1>My Bakery</h1> {/* TODO: personalize your bakery (if you want) */}
+    <h1>Rahul's Bakery</h1> {/* TODO: personalize your bakery (if you want) */}
       {cartJSX}
     {bakeryItemsJSX}
-
     <button onClick={() => {
       console.log('filtering data')
       setData(prev_data => prev_data.filter((item, index) => index % 2 === 0))
