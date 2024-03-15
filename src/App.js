@@ -76,6 +76,7 @@ return (
     <button onClick={() => {
       console.log('restoring data')
       setData(bakeryData) // original data
+      setCart([]) //clear cart
     }}>clear</button>
   </div>
 );
