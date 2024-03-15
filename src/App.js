@@ -1,12 +1,13 @@
 import "./App.css";
 import { useEffect, useState } from "react";
-import bakeryItem from './components/BakeryItem.js';
+import BakeryItem from './components/BakeryItem.js';
 import bakeryData from "./assets/bakery-data.json";
 
 
+
 /* ####### DO NOT TOUCH -- this makes the image URLs work ####### */
-bakeryData.forEach((bakeryItem) => {
-  bakeryItem.image = process.env.PUBLIC_URL + "/" + bakeryItem.image;
+bakeryData.forEach((item) => {
+  item.image = process.env.PUBLIC_URL + "/" + item.image;
 });
 /* ############################################################## */
 
@@ -31,18 +32,17 @@ function App() {
     console.log('data: ', data.length)
   }, [cart, data])
 
-  const addToCart = (bakeryItem) => {
-    console.log('adding to cart:', bakeryItem)
+  const addToCart = (item) => {
+    console.log('adding to cart:', item)
 
-    setCart(prev_cart =>
-      [...prev_cart, bakeryItem]
-        .filter(price => bakeryItem.price < 5))
+    setCart(prev_cart => [...prev_cart, item])
   }
 
-  const bakeryItemsJSX = data.map((bakeryItem, index) => (
+  const bakeryItemsJSX = data.map((item, index) => (
     <div key={index}>
-      <p>{`Bakery Item ${index}, ${bakeryItem.description}, ${bakeryItem.price}`}</p>
-      <button onClick={() => addToCart(bakeryItem)}>Add to Cart</button>
+      {/* <p>{`Bakery Item ${index}, ${bakeryItem.description}, ${bakeryItem.price}`}</p> */}
+      <BakeryItem item={item} />
+      <button onClick={() => addToCart(item)}>Add to Cart</button>
     </div>
   ));
 
@@ -51,24 +51,28 @@ const cartJSX = cart.length === 0 ? <p>Cart is empty</p>
 
 return (
   <div className="App">
+    {/* {data.map((bakeryItem, index) => (
+      <div key={index}>
+        <h2>{bakeryItem.name}</h2>
+        <p>{bakeryItem.description}</p>
+        <p>{bakeryItem.price}</p>
+        <img src={bakeryItem.image} alt={bakeryItem.name} />
+        <button onClick={() => addToCart(bakeryItem)}>Add to Cart</button>
+      </div>
+    ))} */}
     <h1>My Bakery</h1> {/* TODO: personalize your bakery (if you want) */}
       {cartJSX}
     {bakeryItemsJSX}
 
     <button onClick={() => {
       console.log('filtering data')
-      setData(prev_data => prev_data.filter((bakeryItem, index) => index % 2 === 0))
+      setData(prev_data => prev_data.filter((item, index) => index % 2 === 0))
     }}>filter</button>
 
     <button onClick={() => {
       console.log('restoring data')
       setData(bakeryData) // original data
     }}>clear</button>
-
-    <div>
-      <h2>Cart</h2>
-      {/* TODO: render a list of items in the cart */}
-    </div>
   </div>
 );
 }
