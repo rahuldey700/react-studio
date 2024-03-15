@@ -2,8 +2,22 @@
 
 .App {
 
-}
+
 
 .BakeryItem {
-  
+    border: 1px solid #ccc;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+.BakeryItem h2 {
+    margin: 0 0 10px;
+    color: #333;
+}
+
+.BakeryItem p {
+    margin: 0;
+    color: #666;
+}
 }
