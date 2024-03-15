@@ -45,23 +45,29 @@ function App() {
     </div>
   ));
 
+  function BakeryItem({ item }) {
+    return (
+      <div>
+        <h2>{item.name}</h2>
+        <p>{item.description}</p>
+        <p>{item.price}</p>
+        <img src={item.image} alt={item.name} />
+      </div>
+    );
+  }
+
 const cartJSX = cart.length === 0 ? <p>Cart is empty</p>
 : cart.map((item, index) => <p key={index}>{item.name}: $ {item.price}</p>)
 
 return (
   <div className="App">
-    {/* {data.map((BakeryItem, index) => (
-      <div key={index}>
-        <h2>{BakeryItem.name}</h2>
-        <p>{BakeryItem.description}</p>
-        <p>{BakeryItem.price}</p>
-        <img src={BakeryItem.image} alt={BakeryItem.name} />
-        <button onClick={() => addToCart(BakeryItem)}>Add to Cart</button>
-      </div>
-    ))} */}
+    
     <h1>Rahul's Bakery</h1> {/* TODO: personalize your bakery (if you want) */}
+    <div className="cart">
       {cartJSX}
+    </div>
     {bakeryItemsJSX}
+    
     <button onClick={() => {
       console.log('filtering data')
       setData(prev_data => prev_data.filter((item, index) => index % 2 === 0))
