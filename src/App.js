@@ -45,16 +45,16 @@ function App() {
     </div>
   ));
 
-  function BakeryItem({ item }) {
-    return (
-      <div>
-        <h2>{item.name}</h2>
-        <p>{item.description}</p>
-        <p>{item.price}</p>
-        <img src={item.image} alt={item.name} />
-      </div>
-    );
-  }
+  // function BakeryItem({ item }) {
+  //   return (
+  //     <div>
+  //       <h2>{item.name}</h2>
+  //       <p>{item.description}</p>
+  //       <p>{item.price}</p>
+  //       <img src={item.image} alt={item.name} />
+  //     </div>
+  //   );
+  // }
 
 const cartJSX = cart.length === 0 ? <p>Cart is empty</p>
 : cart.map((item, index) => <p key={index}>{item.name}: $ {item.price}</p>)

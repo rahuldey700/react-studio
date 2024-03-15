@@ -7,6 +7,7 @@ const BakeryItem = ({ item }) => {
             <h2>{item.name}</h2>
             <p>{item.description}</p>
             <p>{item.price}</p>
+            <img src={item.image} alt={item.name} />
         </div>
     );
 };
